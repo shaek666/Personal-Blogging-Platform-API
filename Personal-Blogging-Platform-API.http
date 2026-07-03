@@ -1,6 +1,38 @@
-@Personal_Blogging_Platform_API_HostAddress = http://localhost:5225
+@host = http://localhost:5225
 
-GET {{Personal_Blogging_Platform_API_HostAddress}}/weatherforecast/
+### Get all posts
+GET {{host}}/api/posts
 Accept: application/json
 
-###
+### Search posts by term
+GET {{host}}/api/posts?term=tech
+Accept: application/json
+
+### Get post by ID
+GET {{host}}/api/posts/a2e5de77-8611-4c5e-9116-64a8ca452d42
+Accept: application/json
+
+### Create a new post
+POST {{host}}/api/posts
+Content-Type: application/json
+
+{
+  "title": "My First Blog Post",
+  "content": "This is the content of my post. Learning .NET is fun!",
+  "category": "Technology",
+  "tags": ["dotnet", "csharp"]
+}
+
+### Update a post
+PUT {{host}}/api/posts/a2e5de77-8611-4c5e-9116-64a8ca452d42
+Content-Type: application/json
+
+{
+  "title": "My Updated First Post",
+  "content": "This content has been updated!",
+  "category": "Technology",
+  "tags": ["dotnet", "csharp", "tutorial"]
+}
+
+### Delete a post
+DELETE {{host}}/api/posts/a2e5de77-8611-4c5e-9116-64a8ca452d42
